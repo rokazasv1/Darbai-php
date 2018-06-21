@@ -7,23 +7,26 @@
 <body>
 <?php
 $a = '';
-if (isset($_POST['a']) and ($_POST['b'])and ($_POST['c'])) {
-
+if ($_POST['a'] > 0); {
+    $deg = 0.28;
     $a = $_POST['a'];
-    $b = $_POST['b'];
-    $c= $_POST['c'];
-    $date = $a.":".$b.":".$c;
-    echo "Ivestas laikas ".date('H:i:s',strtotime($date));
-    ++$c;
-    $date2 = $a.":".$b.":".$c;
-
-    echo "<br>Po sekundes laikas ".date('H:i:s',strtotime($date2));
+    $sumDeg = $deg * $a;
+    echo "Pilna suma: ".$sumDeg;
+    if ( $sumDeg < 1000) {
+       echo "<br>"."Nera nuolaidos";
+    }
+    else if ($sumDeg < 2000) {
+        $discount3 = $sumDeg - ($sumDeg * (3 / 100));
+        echo "<br>"."Nuolaida 3%: ".round( $discount3,2);
+    }
+    else {
+        $discount4 = $sumDeg - ($sumDeg * (4 / 100));
+        echo "<br>"."Nuolaida 4%: ".round( $discount4,2);
+    }
 }
 ?>
-<form action="3.php" method="post">
-    Valandos <input type="number" name="a" max="24" placeholder="24h format"><br>
-    Minutes <input type="number" name="b" max="60" placeholder="max 60"><br>
-    Sekundes <input type="number" name="c" max="60" placeholder="max 60""><br>
+<form action="4.php" method="post">
+    Iveskite degtuku kieki vnt <input type="number" name="a" min="1"><br>
     <input type="submit">
 </form>
 
