@@ -8,15 +8,9 @@
 <?php
 $totalCorrect = 0;
 
-
 if(isset($_POST['submit'])){
-    if (isset($_POST['question-1-answers'])){
-        echo $_POST['question-1-answers'];
-    }else{
-        $_POST['question-1-answers']='';
-    }
 
-    if ($_POST['question-1-answers']!='' ||  $_POST['question-2-answers']!='' ||  $_POST['question-3-answers']!='') {
+    if (isset($_POST['question-1-answers']) &&  isset($_POST['question-2-answers']) &&  isset($_POST['question-3-answers'])) {
         $answer1 = $_POST['question-1-answers'];
         $answer2 = $_POST['question-2-answers'];
         $answer3 = $_POST['question-3-answers'];
@@ -31,7 +25,9 @@ if(isset($_POST['submit'])){
         if ($answer3 == "C") {
             $totalCorrect++;
         }
-    }else{
+$total = 3;
+$percentage = ($totalCorrect*100)/$total;
+    echo round($percentage,2)."%";
 
     }
 }
