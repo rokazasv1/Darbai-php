@@ -22,35 +22,18 @@
 <table>
 
     <?php
-        for ($i = 1; $i < 9; $i++) {
-            echo "<tr>";
-            echo "<td>".$i."</td>";
-            echo "</tr>";
-            for ($y = 1; $y < 9; $y++) {
-                //            echo $i . "-" . $y . "</br>";
+    $counter = 0;
 
-            }
+    for ($row = 1; $row < 3; $row++) {
+        echo "<tr></tr>";
+
+        for ($col = 1; $col < 3; $col++) {
+            $p = $row *$col;
+            echo "<td>".$p."</td>";
+
         }
+    }
     ?>
-    <tr>
-        <th>Lastname</th>
-        <th>Age</th>
-        <th>Lastname</th>
-        <th>Age</th>
-        <th>Lastname</th>
-        <th>Age</th>
-    </tr>
-    <tr>
-        <td>Smith</td>
-        <td>50</td>
-        <td>50</td>
-        <td>50</td>
-        <td>50</td>
-    </tr>
-    <tr>
-        <td>Jackson</td>
-        <td>94</td>
-    </tr>
 </table>
 </body>
 </html>
